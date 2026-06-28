@@ -24,6 +24,67 @@ flowchart LR
   classDef c fill:#6b46c1,color:#fff; class F c;
 ```
 
+
+<!-- cognis:example:start -->
+## 🔎 Example output
+
+Real, reproducible output from the tool — runs offline:
+
+```console
+$ cognis-connect --version
+cognis-connect 0.1.0
+```
+
+```console
+$ cognis-connect --help
+usage: cognis-connect [-h] [--version] {emit} ...
+
+cognis-connect CLI — route any tool's findings to any platform.
+
+positional arguments:
+  {emit}
+    emit      convert/forward findings to a platform
+
+options:
+  -h, --help  show this help message and exit
+  --version   show program's version number and exit
+```
+
+> Blocks above are real `cognis-connect` output — reproduce them from a clone.
+
+**Sample result format** _(illustrative values — run on your own data for real findings):_
+
+```
+$ cognis-connect emit --platform=Slack --finding="Vulnerability: CVE-2022-1234" --confidence=0.8
+{
+  "message": {
+    "type": "bot_message",
+    "text": "New finding! Vulnerability: CVE-2022-1234 (Confidence: 80%)"
+  },
+  "platform": "Slack",
+  "finding": "Vulnerability: CVE-2022-1234",
+  "confidence": 0.8
+}
+
+$ cognis-connect emit --platform=JIRA --finding="Bug: Incorrect Login" --priority=High
+{
+  "issue": {
+    "fields": {
+      "summary": "Incorrect Login Bug",
+      "priority": {
+        "name": "High"
+      }
+    },
+    "key": "CIS-1234"
+  },
+  "platform": "JIRA",
+  "finding": "Bug: Incorrect Login",
+  "priority": "High"
+}
+```
+
+<!-- cognis:example:end -->
+
 ## Install
 
 ```bash

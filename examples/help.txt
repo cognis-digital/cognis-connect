@@ -1,0 +1,13 @@
+$ cognis-connect --help
+
+usage: cognis-connect [-h] [--version] {emit} ...
+
+cognis-connect CLI — route any tool's findings to any platform.
+
+positional arguments:
+  {emit}
+    emit      convert/forward findings to a platform
+
+options:
+  -h, --help  show this help message and exit
+  --version   show program's version number and exit

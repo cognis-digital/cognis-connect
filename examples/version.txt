@@ -1,0 +1,3 @@
+$ cognis-connect --version
+
+cognis-connect 0.1.0
